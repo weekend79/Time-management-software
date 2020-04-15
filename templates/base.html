@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html land="en">
 
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Time Management system</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -12,8 +15,9 @@
 	<div>
 		<nav>
 			<div class="nav-wrapper blue">
-				<a href="#" class="brand-logo">Logo</a>
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+				<a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
+				<a href="{{ url_for('index') }}" data-target="mobile-demo"
+					class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="sass.html">Sass</a></li>
 					<li><a href="badges.html">Components</a></li>
@@ -27,18 +31,20 @@
 			<li><a href="sass.html">Sass</a></li>
 			<li><a href="badges.html">Components</a></li>
 			<li><a href="collapsible.html">Javascript</a></li>
-			<li><a href="login.html">Mobile</a></li>
+			<li><a href="{{ url_for('login') }}">Mobile</a></li>
 		</ul>
 
 	</div>
 	<div class="container">
 		{% block content %} {% endblock %}
-        
+
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
-		
+		$(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
 	</script>
 </body>
 

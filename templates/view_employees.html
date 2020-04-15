@@ -1,0 +1,35 @@
+{% extends 'backend_base.html' %} {% block content %}
+<div class="container">
+	<a href="{{ url_for('add_user') }}"><button class="waves-effect waves-light btn-large blue">Add user</button></a>
+	<div class="row">
+		<div class="col s12">
+			<table>
+				<ul>
+					<li class="col s2"><strong>Id</strong></li>
+					<li class="col s5"><strong>Name</strong></li>
+					<li class="col s2"><strong>Phone</strong></li>
+					<li class="col s1"><strong>View</strong></li>
+					<li class="col s1"><strong>Edit</strong></li>
+					<li class="col s1"><strong>Delete</strong></li> 
+				</ul>
+			</table>
+			{% for employee in employees %}
+			<table>
+				<ul class="collection with-header">
+					<li class="col s2">{{employee.id}}</li>
+					<li class="col s5">{{employee.name}}</li>
+					<li class="col s2">{{employee.phone}}</li>
+					<div class="inline_actions">
+						<a
+							href="{{url_for('profile', employee_id=employee._id)}}"><i class="col s1 small material-icons">visibility</i></a>
+						<a href="{{url_for('edit_employee', employee_id=employee._id)}}"><i class="col s1 small material-icons">add_circle</i></a>
+						<a
+							href="{{url_for('delete_employee', employee_id=employee._id)}}"><i class="col s1 small material-icons">cancel</i></a>
+					</div>
+				</ul>
+			</table>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
