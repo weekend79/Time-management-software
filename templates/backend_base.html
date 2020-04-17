@@ -11,12 +11,12 @@
 <body>
 	<nav class="nav-extended blue">
 		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo">Logo</a>
+			<a href="{{ url_for('admin_dashboard') }}" class="brand-logo">Logo</a>
 			<ul class="right hide-on-med-and-down">
 				<li><a>Employees</a></li>
 				<li><a>Time Management</a></li>
 				<li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+				<li><a>Logout</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -29,7 +29,21 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function(){
+            $('select').material_select();
+        });
 
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 100, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+
+        document.getElementById("matfix").addEventListener("click", function(e) {e.stopPropagation();
+        });
 	</script>
 </body>
 

@@ -1,0 +1,29 @@
+{% extends 'backend_base.html' %} {% block content %}
+<div class="container">
+	<div class="row">
+		<table>
+			<ul>
+				<li class="col s3"><strong>Project Id</strong></li>
+				<li class="col s5"><strong>Project Name</strong></li>
+				<li class="col s1"><strong>Total Hours</strong></li>
+				<li class="col s1"><strong>Regular Hours</strong></li>
+				<li class="col s1"><strong>Total 50%</strong></li>
+				<li class="col s1"><strong>Total 100%</strong></li>
+			</ul>
+		</table>
+		{% for timestamp in timestamps %}
+		<table>
+			<ul class="collection with-header">
+				<li class="col s3">{{timestamp.project_id}}</li>
+				<li class="col s5">{{project.project_name}}</li>
+				<li class="col s1">x</li>
+				<li class="col s1">x</li>
+				<li class="col s1">x</li>
+				<li class="col s1">x</li>
+			</ul>
+		</table>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

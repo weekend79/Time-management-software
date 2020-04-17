@@ -1,0 +1,14 @@
+{% extends 'backend_base.html' %} {% block content %}
+
+
+<div class="container">
+	<form action="{{ url_for('update_project', project_id=project._id) }}" method="POST">
+		<ul class="collection">
+			<li class="collection-item">Project ID: {{project.project_id}}</li>
+			<li class="collection-item">Project Name: {{project.project_name}}</li>
+			<li class="collection-item">Project Manager: {{project.project_manager}}</li>
+		</ul>
+	</form>
+</div>
+
+{% endblock %}

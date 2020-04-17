@@ -116,6 +116,77 @@ def delete_employee(employee_id):
     return redirect(url_for('view_employees'))
 
 
+@app.route('/projects')
+def projects():
+    return render_template("projects.html", projects=mongo.db.projects.find())
+
+
+@app.route('/see_project/<project_id>')
+def see_project(project_id):
+    the_project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    projects = mongo.db.projects.find()
+    return render_template("see_project.html", project=the_project, projects=mongo.db.projects.find_one())
+
+
+@app.route('/new_project')
+def new_project():
+    return render_template("new_project.html")
+
+
+@app.route('/insert_project', methods=['POST'])
+def insert_project():
+    projects = mongo.db.projects
+    projects.insert_one(request.form.to_dict())
+    flash('New project added')
+    return redirect(url_for('projects'))
+
+
+@app.route('/edit_project/<project_id>')
+def edit_project(project_id):
+    the_project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    projects = mongo.db.projects.find()
+    return render_template('edit_project.html', project=the_project, projects=mongo.db.projects.find_one())
+
+
+@app.route('/update_project/<project_id>', methods=["POST"])
+def update_project(project_id):
+    projects = mongo.db.projects
+    projects.replace_one( {'_id': ObjectId(project_id)},
+    {
+        'project_id' : request.form.get('project_id'),
+        'project_name' : request.form.get('project_name'),
+        'project_manager' : request.form.get('project_manager')
+    })
+    return redirect(url_for('projects'))
+
+
+@app.route('/delete_project/<project_id>')
+def delete_project(project_id):
+    mongo.db.projects.remove({'_id': ObjectId(project_id)})
+    flash('Project deleted!')
+    return redirect(url_for('projects'))
+
+
+@app.route('/time_manager')
+def time_manager():
+    return render_template('time_manager.html', projects=mongo.db.projects.find())
+
+
+@app.route('/timestamp', methods=['POST'])
+def timestamp():
+    timestamp = mongo.db.timestamps
+    timestamp.insert_one(request.form.to_dict())
+    flash('New Time Record Added')
+    return redirect(url_for('admin_dashboard'))
+
+
+@app.route('/history')
+def history():
+    if mongo.db.timestamps.project_id == True:
+        project_name = mongo.db.projects.find(project_name)
+    return render_template('history.html', timestamps=mongo.db.timestamps.find())
+
+
 if __name__ == '__main__':
     app.secret_key = os.getenv('SECRET_KEY')
     app.run(host=os.environ.get('IP', '0.0.0.0'),
