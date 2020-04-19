@@ -26,6 +26,20 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/timer')
+def timer():
+    return render_template('timer.html')
+
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/login')
 def login():
     hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
@@ -182,9 +196,12 @@ def timestamp():
 
 @app.route('/history')
 def history():
-    if mongo.db.timestamps.project_id == True:
-        project_name = mongo.db.projects.find(project_name)
-    return render_template('history.html', timestamps=mongo.db.timestamps.find())
+    return render_template('history.html')
+
+
+@app.route('/project_profile')
+def project_profile():
+    return render_template('project_profile.html', timestamps=mongo.db.timestamps.find_one())
 
 
 if __name__ == '__main__':

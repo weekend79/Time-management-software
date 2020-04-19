@@ -1,9 +1,114 @@
+/* Body, special margins, paddings and colours */
+
 body {
-    background-color: grey;
+    background-color: lightgrey;
+  }
+
+.bg-color {
+    background-color: lightgrey;
 }
 
-.button-size {
-    height: 150px;
-    width: 100%;
+.content-box {
+    background-color: #2196F3;
+    border: 3px solid lightgrey;
+    border-radius: 3%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+div.row {
+    margin-bottom: 0;
+}
+
+/* Icons */
+
+i.material-icons {
+    padding-top: 2%;
+}
+
+i.material-icons.pan-tool {
+    padding-top: 5%;
+}
+
+i.material-icons.padding-zero {
+    padding-top: 0%;
+}
+
+i.icon-size {
+    font-size: 50px;
+}
+
+/* Pre-set margins */
+.margin-top-five {
     margin-top: 5%;
+}
+
+.margin-top-ten {
+    margin-top: 10%;
+}
+
+/* Background: Cover image */
+div.bg-img {
+    background: url("https://i.imgur.com/sofrRZa.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+.text-style-index {
+    color: lightgrey;
+    letter-spacing: 1.5px;
+}
+
+/* Login form */
+
+/* Login form at index */
+.login-form {
+    width: 100%;
+    border: 3px solid lightgrey;
+    border-radius: 3%;
+    background: #2196F3;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 5%;
+}
+
+.login-button {
+    margin-bottom: 10%;
+    margin-top: 10%;
+
+}
+
+form.border {
+    width: 100%;
+    border: 3px solid #2196F3;
+    border-radius: 3%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+/* ADMIN PANEL */
+
+/* Styling admin_dashboard */
+
+.button-size {
+    height: 200px;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.button-size-big {
+    height: 200px;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/* FOOTER ADMIN PANEL */ 
+
+div.footer-copyright {
+    height: 50px;
+    background: #2196F3;
+    color: #fff
 }

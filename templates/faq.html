@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+	<div class="row">
+		<h3>Frequently Asked Questions</h3>
+		<ul class="collapsible">
+			<li class="active">
+				<div class="collapsible-header"><i class="material-icons padding-zero">filter_drama</i>What is Time Manager?
+				</div>
+				<div class="collapsible-body">
+					<span>The Time Manager allows you to keep track of the hours your employees working per month. It gives the admin control
+                to keep track of how much time the company using in each project and thus an easier overview on the cost for each project.</span>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header"><i class="material-icons padding-zero">monetization_on</i>How can my business profit
+					from
+					using Time Manager?</div>
+				<div class="collapsible-body">
+					<span>Most business startups thinks that this is a cost that they don't need in the beginning and that
+                 pen and paper can do the job in the beginning. It sure can but if you calculating the time you spending doing this job even for just 2-3 employees,
+                 compare to just have everything ready at the end of each month, you will soon see you saving money instead.</span>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header"><i class="material-icons padding-zero">phone_android</i>Can I use the Time Manager on
+					my mobile?</div>
+				<div class="collapsible-body">
+					<span>Even if the Time Manager at the moment not coming with an mobile app, you each access it from your browser in your phone
+                The Time Manager is mobile responsive so you can just as easy navigate thru the Time Manager on mobile as on a computer or laptop. </span>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header"><i class="material-icons padding-zero">person</i>How many employees is the
+					maximum I can have on the Time Manager?</div>
+				<div class="collapsible-body">
+					<span>You can have as many employees as you like, but we recommand the Time Manager for small and medium businesses.</span>
+				</div>
+			</li>
+			<div class="col s12">
+				<div class="center-align">
+					<a href="{{ url_for('index') }}">
+						<i class="material-icons prefix">arrow_back</i>
+						<p><strong>Back</strong></p></a>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+
+{% endblock %}

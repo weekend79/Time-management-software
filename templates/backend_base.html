@@ -11,7 +11,7 @@
 <body>
 	<nav class="nav-extended blue">
 		<div class="nav-wrapper">
-			<a href="{{ url_for('admin_dashboard') }}" class="brand-logo">Logo</a>
+			<a href="{{ url_for('admin_dashboard') }}" class="brand-logo">Time Manager</a>
 			<ul class="right hide-on-med-and-down">
 				<li><a>Employees</a></li>
 				<li><a>Time Management</a></li>
@@ -21,9 +21,18 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h1>You are logged in as Admin</h1>
 	</div>
+
 	{% block content %} {% endblock %}
+    <footer>
+        <div class="footer-copyright">
+			<div class="container">
+            <div class="center-align">
+				<strong>© 2020 Copyright Time Manager</strong> 
+			</div>
+		</div>
+    </footer>
+
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -35,7 +44,7 @@
 
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
-            selectYears: 100, // Creates a dropdown of 15 years to control year,
+            selectYears: 100, // Creates a dropdown of 100 years to control year,
             today: 'Today',
             clear: 'Clear',
             close: 'Ok',

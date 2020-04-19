@@ -1,0 +1,21 @@
+{% extends 'backend_base.html' %} {% block content %}
+
+<div class="container">
+	<div class="row">
+		<table class="col s12">
+			<ul class="collection with-header">
+				<h1>Project Name</h1>
+				<div class="row">
+					<div class="col s6">
+						<li class="col s3">Project Id</li>
+					</div>
+					<div class="col s6">
+						<li class="col s3">{{timestamp.project_id}}</li>
+					</div>
+				</div>
+			</ul>
+		</table>
+	</div>
+</div>
+
+{% endblock %}
