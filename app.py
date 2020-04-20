@@ -92,6 +92,18 @@ def add_user():
 
 @app.route('/insert_user', methods=['POST'])
 def insert_user():
+    """
+    1. Add generic and frequently used functions to utils.py
+
+    if is_user_logged_in(request):
+        employees = mongo.db.employees
+        employees.insert_one(request.form.to_dict())
+        flash('New employee added')
+        return redirect(url_for('admin_dashboard'))
+    else:
+        flash(...)
+        ....
+    """
     employees = mongo.db.employees
     employees.insert_one(request.form.to_dict())
     flash('New employee added')
@@ -100,15 +112,29 @@ def insert_user():
 
 @app.route('/edit_employee/<employee_id>')
 def edit_employee(employee_id):
-    the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
-    employees = mongo.db.employees.find_one()
+    """
+    2. Exception Handling
+
+    try:
+        the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
+    except bson.errors.InvalidId:
+        flash('Employee doesn\'t exist')
+        ...
+
     flash('Employee updated')
-    return render_template('edit_employee.html', employee=the_employee, employees=mongo.db.employees.find_one())
+    return render_template('edit_employee.html', employee=the_employee)
+    """
+    the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
+    flash('Employee updated')
+    return render_template('edit_employee.html', employee=the_employee)
 #     employees.insert_one(request.form.to_dict())
 
 
 @app.route('/update_employee/<employee_id>', methods=["POST"])
 def update_employee(employee_id):
+    """
+    3. Improve forms by defining in the backend, presenting to the template, and validating on submit.
+    """
     employees = mongo.db.employees
     employees.replace_one( {'_id': ObjectId(employee_id)},
     {
