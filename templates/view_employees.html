@@ -1,16 +1,16 @@
 {% extends 'backend_base.html' %} {% block content %}
 <div class="container">
-	<a href="{{ url_for('add_user') }}"><button class="waves-effect waves-light btn-large blue">Add user</button></a>
 	<div class="row">
 		<div class="col s12">
 			<table>
+				<h3 class="center-align">Employee List</h3>
 				<ul>
 					<li class="col s2"><strong>Id</strong></li>
 					<li class="col s5"><strong>Name</strong></li>
 					<li class="col s2"><strong>Phone</strong></li>
 					<li class="col s1"><strong>View</strong></li>
 					<li class="col s1"><strong>Edit</strong></li>
-					<li class="col s1"><strong>Delete</strong></li> 
+					<li class="col s1"><strong>Delete</strong></li>
 				</ul>
 			</table>
 			{% for employee in employees %}
@@ -22,13 +22,26 @@
 					<div class="inline_actions">
 						<a
 							href="{{url_for('profile', employee_id=employee._id)}}"><i class="col s1 small material-icons">visibility</i></a>
-						<a href="{{url_for('edit_employee', employee_id=employee._id)}}"><i class="col s1 small material-icons">add_circle</i></a>
+						<a
+							href="{{url_for('edit_employee', employee_id=employee._id)}}"><i class="col s1 small material-icons">add_circle</i></a>
 						<a
 							href="{{url_for('delete_employee', employee_id=employee._id)}}"><i class="col s1 small material-icons">cancel</i></a>
 					</div>
 				</ul>
 			</table>
 			{% endfor %}
+            <div class="col s12 center-align margin-bottom-list">
+				<div class="row">
+                    <div class="col s6 center-align">
+						<a
+							href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons prefix styling-add-button">arrow_back</i>Back</button></a>
+					</div>
+					<div class="col s6 center-align">
+						<a
+							href="{{ url_for('add_user') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons styling-add-button">add_circle</i>Add user</button></a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

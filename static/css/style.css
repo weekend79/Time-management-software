@@ -38,6 +38,10 @@ i.icon-size {
     font-size: 50px;
 }
 
+i.styling-add-button {
+    margin-right: 10%;
+}
+
 /* Pre-set margins */
 .margin-top-five {
     margin-top: 5%;
@@ -88,6 +92,7 @@ form.border {
     margin-top: 10%;
 }
 
+
 /* ADMIN PANEL */
 
 /* Styling admin_dashboard */
@@ -111,4 +116,9 @@ div.footer-copyright {
     height: 50px;
     background: #2196F3;
     color: #fff
+}
+
+/* View Employee */
+.margin-bottom-list {
+    margin-bottom: 10%;
 }
