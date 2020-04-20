@@ -9,9 +9,9 @@
 				<input id="employee_name" name="name" type="text" class="validate" value="{{employee.name}}">
 				<label for="icon_prefix">Name</label>
 			</div>
-			<div class="input-field col s12">
+			<div id="matfix" class="input-field col s12">
 				<i class="material-icons prefix">today</i>
-				<input id="employee_dob" name="dob" type="text" class="validate" value="{{employee.DOB}}">
+				<input id="dob" name="dob" type="text" class="datepicker" value="{{employee.dob}}">
 				<label for="icon_prefix">Date of Birth</label>
 			</div>
 			<div class="input-field col s12">
@@ -45,7 +45,7 @@
 				<label for="icon_prefix">E-mail</label>
 			</div>
 			<div class="input-field col s12">
-				<i class="material-icons prefix">block</i>
+				<i class="material-icons prefix">safety</i>
 				<input disabled value="{{employee.id}}" id="disabled" name="id" type="text" class="validate" value="{{employee.id}}">
 				<label for="icon_prefix">Employee ID</label>
 			</div>
@@ -63,5 +63,7 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {% endblock %}

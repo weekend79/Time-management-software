@@ -101,8 +101,10 @@ def insert_user():
 @app.route('/edit_employee/<employee_id>')
 def edit_employee(employee_id):
     the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
-    employees = mongo.db.employees.find()
+    employees = mongo.db.employees.find_one()
+    flash('Employee updated')
     return render_template('edit_employee.html', employee=the_employee, employees=mongo.db.employees.find_one())
+#     employees.insert_one(request.form.to_dict())
 
 
 @app.route('/update_employee/<employee_id>', methods=["POST"])
