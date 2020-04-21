@@ -40,6 +40,7 @@ def faq():
 def contact():
     return render_template('contact.html')
 
+
 @app.route('/login')
 def login():
     hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
@@ -224,7 +225,7 @@ def timestamp():
 
 @app.route('/history')
 def history():
-    return render_template('history.html')
+    return render_template("history.html", timestamps=mongo.db.timestamps.find())
 
 
 @app.route('/project_profile')
