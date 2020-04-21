@@ -2,27 +2,36 @@
 <div class="bg-img">
 	<div class="container">
 		<div class="row">
-			<div class="col l7 s12 content-box  border">
+            <!-- Info box about Time Manager -->
+			<div class="col s12 content-box  border">
 				<h1 class="text-style-index">Welcome to Time Manager</h1>
 				<h5 class="text-style-index">-Keep track of your employees timerecords with the Time Manager and save
 					time and money!</h5>
 			</div>
+            <!-- Login button to admin dashboard -->
+			<div class="col s12 center-align">
+				<a
+					href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue login-button hoverable center-align">Login</button></a>
+			</div>
+			<!-- Comment out my login form for use later! 
 			<form class="col l4 offset-l1 s12 border bg-color">
 				<div class="row">
 					<div class="input-field valign-wrapper col s12 margin-top-ten">
 						<i class="material-icons prefix">account_circle</i>
-						<input id="icon_prefix" type="text" class="validate">
+						<input id="icon_prefix" type="text" class="disabled">
 						<label for="icon_prefix">Username</label>
 					</div>
 					<div class="input-field valign-wrapper col s12">
 						<i class="material-icons prefix">lock</i>
-						<input id="password" type="password" class="validate">
+						<input id="password" type="password" class="disabled">
 						<label for="password">Password</label>
 					</div>
 				</div>
 				<div class="col s12">
 					<p>Remember Me</p>
-					<!-- Switch -->
+                    -->
+			<!-- Switch -->
+			<!-- Cooment the form out
 					<div class="switch">
 						<label>
                         No
@@ -41,9 +50,8 @@
 						href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue login-button hoverable">Login</button></a>
 				</div>
 			</form>
+            -->
 		</div>
-		<a
-			href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue login-button">Login</button></a>
 	</div>
 </div>
 

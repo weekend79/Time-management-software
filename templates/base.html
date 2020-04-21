@@ -13,12 +13,13 @@
 
 <body>
 	<div>
+        <!-- Navigation bar -->
 		<nav>
 			<div class="nav-wrapper blue">
 				<a href="{{ url_for('index') }}" class="brand-logo">Time Manager</a>
-				<a href="{{ url_for('index') }}" data-target="mobile-demo"
-					class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
+				<!--<a href="{{ url_for('index') }}" data-target="mobile-demo"
+					class="sidenav-trigger right"><i class="material-icons">menu</i></a> -->
+				<ul class="navbar right">
 					<li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('timer') }}">Time Manager</a></li>
 					<li><a href="{{ url_for('faq') }}">FAQ</a></li>
@@ -27,17 +28,9 @@
 			</div>
 		</nav>
 
-		<ul class="sidenav" id="mobile-demo">
-			<li><a href="sass.html">Home</a></li>
-			<li><a href="badges.html">Time Manager</a></li>
-			<li><a href="collapsible.html">FAQ</a></li>
-			<li><a href="{{ url_for('login') }}">Contact</a></li>
-		</ul>
-
-	</div>
 
 		{% block content %} {% endblock %}
-
+<!-- Footer -->
 	<footer class="page-footer blue">
 		<div class="container">
 			<div class="row">
@@ -64,13 +57,15 @@
 			</div>
 		</div>
 	</footer>
+    <!-- Scripts and libraries-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
+    // Ready function for my collapsible and character counter  
 		$(document).ready(function(){
             $('.collapsible').collapsible();
             $('input#input_text, textarea#textarea2').characterCounter();
-            $('.sidenav').sidenav();
+        //    $('.sidenav').sidenav();
         });
 	</script>
 </body>

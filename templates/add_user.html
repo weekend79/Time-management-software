@@ -1,7 +1,8 @@
 {% extends 'backend_base.html' %} {% block content %}
 <div class="container">
 	<div class="row">
-		<h3 class="center-align">Add New Employee</h3>
+		<h3 class="center-align">Add New Employee</h3> 
+        <!-- Form for adding new Employees-->
 		<form action="{{ url_for('insert_user') }}" method="POST" class="col s12">
 			<div class="row">
 				<div class="input-field col s12">
@@ -52,10 +53,12 @@
 					<label for="icon_prefix">Employee Id</label>
 				</div>
 			</div>
+            <!-- Submit button for the form-->
 			<div class=" col s12 center-align">
 				<button type="submit" class="waves-effect waves-light btn-large blue">Add Employee</button>
 			</div>
 		</form>
+        <!-- Back to the Dashboard button -->
 		<div class="col s12">
 			<div class="center-align">
 				<a href="{{ url_for('admin_dashboard') }}">

@@ -3,6 +3,7 @@
 <div class="container">
 	<table>
 		<div class="row">
+            <!-- Project list header-->
 			<h3 class="center-align">Project List</h3>
 			<ul>
 				<li class="col s2"><strong>Project Id</strong></li>
@@ -15,6 +16,7 @@
 		</div>
 	</table>
 	<table>
+    <!-- Project display -->
 		{% for project in projects %}
 		<div class="row">
 			<ul class="collection with-header">
@@ -35,10 +37,12 @@
 	{% endfor %}
 	<div class="col s12 center-align margin-bottom-list">
 		<div class="row">
+            <!-- Button to Admin Dashboard -->
 			<div class="col s6 center-align">
 				<a
 					href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons prefix styling-add-button">arrow_back</i>Back</button></a>
 			</div>
+            <!-- Button to add a new project-->
 			<div class="col s6 center-align">
 				<a
 					href="{{ url_for('new_project') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons styling-add-button">add_circle</i>New Project</button></a>

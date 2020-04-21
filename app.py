@@ -1,14 +1,15 @@
+"""
+Imports from Os, Flask, BSON and PyMongo,  
+
+"""
 import os
-import bcrypt
-from flask import Flask, flash, redirect, render_template, request, url_for, session
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+# Import env file
 if os.path.exists("env.py"):
     import env
-
-# if os.path.exists("utils.py"):
- #   import utils
 
 # Connection configuration
 app = Flask(__name__)
@@ -18,67 +19,47 @@ app.config['MONGO_DBNAME'] = 'time_manager'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
+# PyMongo connection
 mongo = PyMongo(app)
 
-# Setting up the app route
+
+# Setting up the app route for Index
 @app.route('/')
 def index():
     return render_template("index.html")
 
 
+# Setting up the app route for Time Manager static site
 @app.route('/timer')
 def timer():
     return render_template('timer.html')
 
 
+# Setting up the app route for the FAQ page
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
 
+# Setting up the app route for contact page
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
 
 
-@app.route('/login')
-def login():
-    hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-    user = mongo.db.users.find_one({'name': request.form['username'], 'password': hashpass})
-
-    if user:
-        session['username'] = request.form['username']
-        return redirect(url_for('admin_dashboard'))
-
-    return render_template("login.html")
-
-
+# Setting up the app route for admin dashboard
 @app.route('/admin_dashboard')
 def admin_dashboard():
     return render_template("admin_dashboard.html")
-#    new_user = mongo.db.new_user
-#    login_user = new_user.find_one({'name' : request.form['username']})
-
-    # if login_user:
-    #    if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-    #        session['username'] = request.form['username']
-    #        return redirect(url_for('login'))
-#    return 'Invalid username/password combination'
 
 
-# users --> usernames and passwords and permissions e.g. is_employee, is_admin and employee = _id
-# employees --> [employee_1(_id=...)]
-
-
+# Setting up the app route for View Employees
 @app.route('/view_employees')
 def view_employees():
     return render_template("view_employees.html", employees=mongo.db.employees.find())
 
-    # get the employees from MongoDB
-    # employees = [employee_1, ..., employee_n]
-    # employees[0]['postal_code']
 
-
+# Setting up the app route for finding one employees profile
 @app.route('/profile/<employee_id>')
 def profile(employee_id):
     the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
@@ -86,11 +67,13 @@ def profile(employee_id):
     return render_template("profile.html", employee=the_employee, employees=mongo.db.employees.find_one())
 
 
+# App route to add a new employee
 @app.route('/add_user')
 def add_user():
     return render_template("add_user.html")
 
 
+# App route for inserting a user in the database
 @app.route('/insert_user', methods=['POST'])
 def insert_user():
     """
@@ -110,7 +93,7 @@ def insert_user():
     flash('New employee added')
     return redirect(url_for('admin_dashboard'))
 
-
+# App route for editing a employee
 @app.route('/edit_employee/<employee_id>')
 def edit_employee(employee_id):
     """
@@ -128,9 +111,9 @@ def edit_employee(employee_id):
     the_employee = mongo.db.employees.find_one({"_id": ObjectId(employee_id)})
     flash('Employee updated')
     return render_template('edit_employee.html', employee=the_employee)
-#     employees.insert_one(request.form.to_dict())
 
 
+# App route for updating the database from the edit employee form
 @app.route('/update_employee/<employee_id>', methods=["POST"])
 def update_employee(employee_id):
     """
@@ -152,6 +135,7 @@ def update_employee(employee_id):
     return redirect(url_for('view_employees'))
 
 
+# App route for deleting a employee from the database
 @app.route('/delete_employee/<employee_id>')
 def delete_employee(employee_id):
     mongo.db.employees.remove({'_id': ObjectId(employee_id)})
@@ -159,11 +143,13 @@ def delete_employee(employee_id):
     return redirect(url_for('view_employees'))
 
 
+# App route to see a list of all projects
 @app.route('/projects')
 def projects():
     return render_template("projects.html", projects=mongo.db.projects.find())
 
 
+# App route to find a project and to display the project data
 @app.route('/see_project/<project_id>')
 def see_project(project_id):
     the_project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
@@ -171,11 +157,13 @@ def see_project(project_id):
     return render_template("see_project.html", project=the_project, projects=mongo.db.projects.find_one())
 
 
+# App route for adding a new project to the database
 @app.route('/new_project')
 def new_project():
     return render_template("new_project.html")
 
 
+# App route for inserting a new project to the database
 @app.route('/insert_project', methods=['POST'])
 def insert_project():
     projects = mongo.db.projects
@@ -184,6 +172,7 @@ def insert_project():
     return redirect(url_for('projects'))
 
 
+# App route for editing a project
 @app.route('/edit_project/<project_id>')
 def edit_project(project_id):
     the_project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
@@ -191,6 +180,7 @@ def edit_project(project_id):
     return render_template('edit_project.html', project=the_project, projects=mongo.db.projects.find_one())
 
 
+# App route for updating the project data in the database
 @app.route('/update_project/<project_id>', methods=["POST"])
 def update_project(project_id):
     projects = mongo.db.projects
@@ -203,6 +193,7 @@ def update_project(project_id):
     return redirect(url_for('projects'))
 
 
+# App route for deleting a project
 @app.route('/delete_project/<project_id>')
 def delete_project(project_id):
     mongo.db.projects.remove({'_id': ObjectId(project_id)})
@@ -210,11 +201,13 @@ def delete_project(project_id):
     return redirect(url_for('projects'))
 
 
+# App route to open the Time manager
 @app.route('/time_manager')
 def time_manager():
     return render_template('time_manager.html', projects=mongo.db.projects.find())
 
 
+# App route for inserting a timestamp in the database
 @app.route('/timestamp', methods=['POST'])
 def timestamp():
     timestamp = mongo.db.timestamps
@@ -223,18 +216,20 @@ def timestamp():
     return redirect(url_for('admin_dashboard'))
 
 
+# App route to timestamp history
 @app.route('/history')
 def history():
     return render_template("history.html", timestamps=mongo.db.timestamps.find())
 
 
+# App route to see the project data
 @app.route('/project_profile')
 def project_profile():
     return render_template('project_profile.html', timestamps=mongo.db.timestamps.find_one())
 
 
+# App run
 if __name__ == '__main__':
-    app.secret_key = os.getenv('SECRET_KEY')
     app.run(host=os.environ.get('IP', '0.0.0.0'),
             port=int(os.environ.get('PORT', '5000')),
             debug=True)

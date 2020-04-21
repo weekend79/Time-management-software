@@ -4,6 +4,7 @@
 		<h3 class="center-align">Summary of submitted timestamps</h3>
 		<table>
 			<ul>
+                <!-- Header for the timestamps-->
 				<li class="col s3"><strong>Project Id</strong></li>
 				<li class="col s5"><strong>Employee</strong></li>
 				<li class="col s1"><strong>Total Hours</strong></li>
@@ -14,7 +15,7 @@
 		</table>
 
 		<table>
-
+                <!-- Timestamps display -->
 			<ul class="collection with-header">
 				{% for timestamp in timestamps %}
 				<li class="col s3">{{timestamp.project_id}}</li>
@@ -26,6 +27,7 @@
 				{% endfor %}
 			</ul>
 		</table>
+        <!-- Back button -->
 		<div class="col s12 center-align margin-bottom-list">
 			<div class="row">
 				<div class="col s12 center-align">

@@ -1,6 +1,7 @@
 {% extends 'backend_base.html' %} {% block content %}
 
 <div class="container">
+    <!-- Form for editing the employees in the database-->
 	<form action="{{ url_for('update_employee', employee_id=employee._id) }}" method="POST">
 		<ul class="collection">
             <h3 class="center-align">Edit Employee</h3>
@@ -54,6 +55,7 @@
 			</div>
 		</ul>
 	</form>
+    <!-- Back to dashboard button -->
 	<div class="col s12">
 		<div class="center-align">
 			<a href="{{ url_for('admin_dashboard') }}">

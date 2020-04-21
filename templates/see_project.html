@@ -4,6 +4,7 @@
 	<ul class="collection">
 		<div class="col s12">
 			<div class="row">
+            <!-- See the project profile -->
 				<div class="col s12 center-align">
 					<li class="collection-header">
 						<i class="material-icons prefix">account_circle</i>
@@ -66,10 +67,12 @@
 	</ul>
 	<div class="col s12 center-align margin-bottom-list">
 		<div class="row">
+        <!-- Button to see projects -->
 			<div class="col s6 center-align">
 				<a
 					href="{{ url_for('projects') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons prefix styling-add-button">arrow_back</i>Back</button></a>
 			</div>
+            <!-- Button to take you to edit projects -->
 			<div class="col s6 center-align">
 				<a
 					href="{{url_for('edit_project', project_id=project._id)}}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons styling-add-button">add_circle</i>Edit project</button></a>

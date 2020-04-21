@@ -78,6 +78,8 @@ collapsible to create the questions and answers. The contact form is not active,
 * Verify - There will be a possibility to verify the timestamps from the project manager or admin.
 * History - Search for a particular employee to see all the timestamps, separate the timestamps for each project. 
 * Setting - A control panel will be developed to give admin easy control over his Time Manager. 
+* Get my Flashed messages displayed in a better and more correct way.
+* Company profile page
 
 ### Technologies / Support used.
 ---
@@ -94,7 +96,7 @@ Below is a list of technologies I've used to build my website and application
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - I've used Flask for rendering my templates, url_for, requests
 * [PyMongo](https://docs.mongodb.com/) - I've used PyMongo package as my native Python driver for MongoDB. 
 * [BSON](http://bsonspec.org/) - I've used BSON for my Object Id.  
-* [Heroku](https://www.heroku.com/) - I've used BSON for my Object Id. 
+* [Heroku](https://www.heroku.com/) - I've deployed my code to Heroku. 
 
 ### Testing 
 --- 
@@ -107,10 +109,61 @@ all features and framework is correct in it's positions. Everything scales nicel
 ### Bugs
 --- 
 Editing users: When editing Employees the Employee_id and the DoB changes in the Database to "NULL" even if you change it or not. 
+Due to not being able to fix my navbar so it scaled when used on tablets and mobiles, its not possible to navigate to contact and the FAQ pages from devices with smaller screen sizes
 
 ### Deployment
 ---
 My website and application was created using GitPod, they provide me with free credits as a student and their platform have 
 buildt in Terminal that allows me to push my code to GitHub. GitPod allows you to store your username and password and
-thus makes the experience pushing your code to GitHub easier. 
+thus makes the experience pushing your code to GitHub easier. I have also pushed my code to Heroku to create it into a Heroku app.
 
+#### GitHub and GitPod
+* Create your project in GitHub and open it with GitPod directly from GitHub. 
+* Created all my folder and files.
+* Use "git add ." into the bash terminal
+* Use "git commit" into the bash terminal and create "initial commit"
+* Use "git push" into the bash terminal and push your code to GitHub
+* Follow the below steps to deploy the site to GitHub pages. 
+
+#### To deploy the application to Heroku follow the steps below:
+* Create your free Heroku account
+* Choose to create a new app
+* Give your app a name
+* Install the Heroku CLI
+* Login to Heroku from your CLI
+* Deploy your code to Heroku using git commands
+* git add .
+* git commit -m "Inintial Heroku commit"
+* git push heroku master
+* Go to settings and set your config vars values
+* IP - 0.0.0.0
+* PORT - 5000
+* At the top on the right side you can find a button name "Open App" use it to to see your deployed project: https://time-management-system.herokuapp.com/
+
+
+##### To deploy the website to GitHub pages follow the below steps:
+* Select the "Time-Management-Software" from my GitHub dashboard.
+* Select "Settings" from the menu bar. 
+* From the GitHub pages section, I chose "master branch" from the dropdown menu. 
+* Once selected, the page refreshes and a link will be displayed in the GitHub section to my website.
+* Link to the project: <a href="https://time-management-system.herokuapp.com/>Click here</a>  
+
+### To run this project locally
+---
+* Follow this link to the [GitHub Repositiry](https://github.com/weekend79/time-management-software)
+* Click on the 'Clone or Download' button.
+* Copy the URL provided.
+* Open a bash terminal, move to your desired directory.
+* Type 'git clone' and paste in the URL.
+
+### Contributing
+---
+* To my mentor [Reuben Ferrante](https://github.com/arex18), for giving me exellent guidens thru the project and assisted me in some important issue's.
+* [W3C Validator](https://validator.w3.org/#validate_by_input) - A validator used to check my HTML and CSS structure and format periodically throughout the build.
+* [W3Schools](https://www.w3schools.com/) - I used this to ensure I was entering all the information required correctly in my HTML and CSS.
+* [Tutor Support](https://codeinstitute.net/) - I used turtor support thruout the project and they have been excellent support.
+* [Slack community](https://slack.com/) - For a some of my issues I have turn to the Slack community and they have provided me with excellent tips and tricks to use in my development 
+
+### Author
+
+* **Morten Viken** - *Initial work* - [weekend79](https//github.com/weekend79)

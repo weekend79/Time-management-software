@@ -3,6 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12 m8 offset-m2">
+            <!-- Timestamp insert in the database -->
 			<h3 class="center-align">My TimeStamps</h3>
 			<form action="{{ url_for('timestamp') }}" method="POST" class="col s12">
 				<div class="input-field col s12">
@@ -10,6 +11,7 @@
 					<input id="employee_id" name="employee_id" type="text" class="validate">
 					<label for="employee_id">Enter your name</label>
 				</div>
+                <!-- Gets the project name and id from the database -->
 				<div class="input-field col s12">
 					<i class="material-icons prefix">poll</i>
 					<select id="project_id" name="project_id">
@@ -63,6 +65,7 @@
 					<button type="submit" name="action" class="waves-effect waves-light btn-large blue"><i class="material-icons right">update</i>Submit</button>
 				</div>
 			</form>
+            <!-- Back button -->
 			<div class="col s12">
 				<div class="center-align">
 					<a href="{{ url_for('admin_dashboard') }}">

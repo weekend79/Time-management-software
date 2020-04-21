@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- Navigation bar -->
 	<nav class="nav-extended blue">
 		<div class="nav-wrapper">
 			<a href="{{ url_for('admin_dashboard') }}" class="brand-logo">Time Manager</a>
@@ -20,10 +21,9 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="container">
-	</div>
 
 	{% block content %} {% endblock %}
+    <!-- Footer in admin dashboard-->
     <footer>
         <div class="footer-copyright">
 			<div class="container">
@@ -34,7 +34,7 @@
     </footer>
 
 
-
+<!-- My scripts and libraries -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
@@ -42,6 +42,7 @@
             $('select').material_select();
         });
 
+// Code provided in the LMS durring our task handling mini project
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 100, // Creates a dropdown of 100 years to control year,

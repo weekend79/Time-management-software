@@ -2,6 +2,7 @@
 
 <div class="container">
     <h3 class="center-align">Edit Project</h3>
+    <!-- Edit project form -->
 	<form action="{{ url_for('update_project', project_id=project._id) }}" method="POST">
 		<ul class="collection">
 			<div class="input-field col s12">
@@ -24,6 +25,7 @@
 			</div>
         </ul>
 	</form>
+    <!-- Back button -->
     <div class="col s12">
 			<div class="center-align">
 				<a href="{{ url_for('projects') }}">

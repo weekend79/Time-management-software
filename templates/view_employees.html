@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="col s12">
 			<table>
+                <!-- Table header for the employee list -->
 				<h3 class="center-align">Employee List</h3>
 				<ul>
 					<li class="col s2"><strong>Id</strong></li>
@@ -15,6 +16,7 @@
 			</table>
 			{% for employee in employees %}
 			<table>
+                <!-- Displaying the employee results -->
 				<ul class="collection with-header">
 					<li class="col s2">{{employee.id}}</li>
 					<li class="col s5">{{employee.name}}</li>
@@ -32,10 +34,12 @@
 			{% endfor %}
             <div class="col s12 center-align margin-bottom-list">
 				<div class="row">
+                    <!-- Back button -->
                     <div class="col s6 center-align">
 						<a
 							href="{{ url_for('admin_dashboard') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons prefix styling-add-button">arrow_back</i>Back</button></a>
 					</div>
+                    <!-- Directs you to the add new employee -->
 					<div class="col s6 center-align">
 						<a
 							href="{{ url_for('add_user') }}"><button class="waves-effect waves-light btn-large blue hoverble"><i class="col s1 small material-icons styling-add-button">add_circle</i>Add user</button></a>

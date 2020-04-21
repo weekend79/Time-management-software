@@ -46,15 +46,6 @@ i.icon-profile {
     padding-top: 12%;
 }
 
-/* Pre-set margins */
-.margin-top-five {
-    margin-top: 5%;
-}
-
-.margin-top-ten {
-    margin-top: 10%;
-}
-
 /* Background: Cover image */
 div.bg-img {
     background: url("https://i.imgur.com/sofrRZa.jpg") no-repeat center center fixed; 
@@ -69,7 +60,7 @@ div.bg-img {
     letter-spacing: 1.5px;
 }
 
-/* Login form */
+/* Login form NOT IN USE AT THE MOMENT*/
 
 /* Login form at index */
 .login-form {
@@ -96,6 +87,10 @@ form.border {
     margin-top: 10%;
 }
 
+/* Index page */
+div.col.s12.content-box.border {
+    margin-bottom: 0;
+}
 
 /* ADMIN PANEL */
 

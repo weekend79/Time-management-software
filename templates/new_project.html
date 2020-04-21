@@ -1,6 +1,7 @@
 {% extends 'backend_base.html' %} {% block content %}
 <div class="container">
 	<div class="row">
+        <!-- Form for adding a new project -->
 		<h3 class="center-align">Add new project</h3>
 		<form action="{{ url_for('insert_project') }}" method="POST" class="col s12">
 			<div class="row">
@@ -24,6 +25,7 @@
 				<button type="submit" name="action" class="waves-effect waves-light btn-large blue"><i class="material-icons right">update</i>Add project</button>
 			</div>
 		</form>
+        <!-- Back button -->
 		<div class="col s12">
 			<div class="center-align">
 				<a href="{{ url_for('projects') }}">
