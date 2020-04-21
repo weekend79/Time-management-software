@@ -47,6 +47,44 @@ collapsible to create the questions and answers. The contact form is not active,
 
  The footer don't display any information but is more a line to end the page.
 
+ ### index.html
+![](static/images/index.png)
+
+### faq.html
+![](static/images/faq.png)
+
+### contact.html
+![](static/images/contact.png)
+
+### admin_dashboard.html
+![](static/images/dashboard.png)
+
+### add_project.html
+![](static/images/add_project.png)
+
+### see_project.html
+![](static/images/see_projects.png)
+
+### edit_project.html
+![](static/images/edit_project.png)
+
+### add_user.html
+![](static/images/add_employee.png) 
+
+### view_employees.html
+![](static/images/view_employees.png)
+
+### edit_employees.html
+![](static/images/edit_employees.png) 
+
+### profile.html
+![](static/images/profile.png) 
+
+### time_manager.html
+![](static/images/timestamp.png) 
+
+### history.html
+![](static/images/history.png) 
 
 ### Features
 ---

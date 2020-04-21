@@ -77,6 +77,7 @@ def add_user():
 @app.route('/insert_user', methods=['POST'])
 def insert_user():
     """
+    TIPS FROM MY MENTOR
     1. Add generic and frequently used functions to utils.py
 
     if is_user_logged_in(request):
@@ -97,6 +98,7 @@ def insert_user():
 @app.route('/edit_employee/<employee_id>')
 def edit_employee(employee_id):
     """
+    TIPS FROM MY MENTOR
     2. Exception Handling
 
     try:
