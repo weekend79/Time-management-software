@@ -14,10 +14,10 @@
 		<div class="nav-wrapper">
 			<a href="{{ url_for('admin_dashboard') }}" class="brand-logo">Time Manager</a>
 			<ul class="right hide-on-med-and-down">
-				<li><a>Employees</a></li>
-				<li><a>Time Management</a></li>
-				<li><a>Settings</a></li>
-				<li><a>Logout</a></li>
+				<li><a href="{{ url_for('view_employees') }}">Employees</a></li>
+                <li><a href="{{ url_for('time_manager') }}">Time Management</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="{{ url_for('index') }}">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
